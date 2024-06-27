@@ -13,20 +13,17 @@ public class Number7 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String string = scanner.nextLine().toLowerCase();
-        int rt = string.length()-1;
         int max = string.length() / 2;
-        Set<Boolean> result = new HashSet<>();
+        String result = "YES";
         for (int lt = 0; lt < max; lt++) {
-            if(string.charAt(lt) == string.indexOf(rt)){
-                result.add(true);
-            }else {
-                result.add(false);
+            int rt = string.length()-lt-1;
+            if (string.charAt(lt) != string.charAt(rt)) {
+                result = "NO";
+                break;
             }
         }
-        if (!result.contains(false)){
-            System.out.println("YES");
-        }else {
-            System.out.println("NO");
-        }
+
+        System.out.println(result);
+
     }
 }
